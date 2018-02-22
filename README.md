@@ -1,5 +1,5 @@
 
-#Dominio de problema: Expresiones temporales
+# Dominio de problema: Expresiones temporales
 
 Una expresión temporal es una expresión que recurre o no en el continuo.
 
@@ -23,11 +23,11 @@ El 3er viernes cada 2 meses desde enero del 2018 hasta agosto del 2019
 El 8 de agosto todos los años desde el 2018 hasta el 2024
 
 
-##¿Qué tengo que hacer?
+## ¿Qué tengo que hacer?
 Escribir el código necesario para que pasen los test cases (TimeExpressionTest.java)
 
-###¿Por qué?
+### ¿Por qué?
 El próposito es poder evaluar como el candidato modela un dominio, en éste caso aplicando TDD como técnica de desarrollo de software.
 
-###¡Importante!
-En los test cases podes crear nuevos tipos que reemplacen los primitivos como "int"
+# ¡Importante!
+En los test cases podes crear nuevos tipos que reemplacen a los primitivos como "int"
