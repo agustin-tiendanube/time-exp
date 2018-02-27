@@ -24,7 +24,7 @@ El 8 de agosto todos los años desde el 2018 hasta el 2024
 
 
 ## ¿Qué tengo que hacer?
-Escribir el código necesario para que pasen los test cases (TimeExpressionTest.java)
+Escribir las implementaciones correspondientes en TimeExpression para que pasen los test cases de TimeExpressionTest
 
 ### ¿Por qué?
 El próposito es poder evaluar como el candidato modela un dominio, en éste caso aplicando TDD como técnica de desarrollo de software.
