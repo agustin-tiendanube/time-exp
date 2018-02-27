@@ -7,6 +7,8 @@ import java.time.MonthDay;
 import java.time.YearMonth;
 import java.util.Iterator;
 
+// ¡ REMEMBER ! YOU CAN ONLY CHANGE PRIMITIVE TYPES SUCH AS the Integers I used to represent days, weeks, and so on
+
 public class TimeExpressionTest extends TestCase {
 
     public void testOnDate() {
@@ -17,7 +19,7 @@ public class TimeExpressionTest extends TestCase {
     }
 
     public void testRecursEveryDay() {
-        int oneDay = 1;
+        int oneDay = 1; // you can change the Int type by the one you make up
         LocalDate today = LocalDate.now();
         LocalDate theNextSixDays = today.plusDays(6);
 
@@ -39,7 +41,7 @@ public class TimeExpressionTest extends TestCase {
     }
 
     public void testRecursEveryTwoDays() {
-        int twoDays = 2;
+        int twoDays = 2; // you can change the Int type by the one you make up
         LocalDate today = LocalDate.now();
         LocalDate theNextSevenDays = today.plusDays(7);
 
@@ -61,8 +63,8 @@ public class TimeExpressionTest extends TestCase {
     }
 
     public void testRecursEveryMonthTheSecondDay() {
-        int oneMonth = 1;
-        int theSecondDay = 2;
+        int oneMonth = 1; // you can change the Int type by the one you make up
+        int theSecondDay = 2; // you can change the Int type by the one you make up
         YearMonth januaryOf2012 = YearMonth.of(2012, 1);
         YearMonth mayOf2012 = YearMonth.of(2012, 5);
 
@@ -84,8 +86,8 @@ public class TimeExpressionTest extends TestCase {
     }
 
     public void testRecursEveryTwoMonthsTheSeconthDay() {
-        int twoMonth = 1;
-        int theSecondDay = 2;
+        int twoMonth = 1; // you can change the Int type by the one you make up
+        int theSecondDay = 2; // you can change the Int type by the one you make up
         YearMonth january2012 = YearMonth.of(2012, 1);
         YearMonth may2012 = YearMonth.of(2012, 5);
 
@@ -107,8 +109,8 @@ public class TimeExpressionTest extends TestCase {
     }
 
     public void testRecursEveryMonthTheFirstFriday() {
-        int oneMonth = 1;
-        int theFirstWeekOfTheMonth = 1;
+        int oneMonth = 1; // you can change the Int type by the one you make up
+        int theFirstWeekOfTheMonth = 1; // you can change the Int type by the one you make up
         YearMonth januaryOf2012 = YearMonth.of(2012, 1);
         YearMonth mayOf2012 = YearMonth.of(2012, 5);
 
@@ -138,8 +140,43 @@ public class TimeExpressionTest extends TestCase {
         assertTrue(everyMonthTheFirstFridayFromJanuary2012ToMay2012.isRecurringOn(firstFridayOfJanuary2012.plusWeeks(13))); // first friday of april
     }
 
+    public void testRecursEveryMonthTheLastFriday() {
+        int oneMonth = 1; // you can change the Int type by the one you make up
+        int theFirstWeekOfTheMonth = 5;  // you can change the Int type by the one you make up
+        YearMonth januaryOf2012 = YearMonth.of(2012, 1);
+        YearMonth mayOf2012 = YearMonth.of(2012, 5);
+
+        TimeExpression everyMonthTheLastFridayFromJanuary2012ToMay2012 =
+                TimeExpression
+                        .monthlyEveryOnOfFromTo(
+                                oneMonth,
+                                DayOfWeek.FRIDAY,
+                                theFirstWeekOfTheMonth,
+                                januaryOf2012,
+                                mayOf2012);
+
+        LocalDate firstFridayOfJanuary2012 = LocalDate.of(2012, 1, 6);
+        assertFalse(everyMonthTheLastFridayFromJanuary2012ToMay2012.isRecurringOn(firstFridayOfJanuary2012));
+        assertFalse(everyMonthTheLastFridayFromJanuary2012ToMay2012.isRecurringOn(firstFridayOfJanuary2012.plusWeeks(1)));
+        assertFalse(everyMonthTheLastFridayFromJanuary2012ToMay2012.isRecurringOn(firstFridayOfJanuary2012.plusWeeks(2)));
+        assertTrue(everyMonthTheLastFridayFromJanuary2012ToMay2012.isRecurringOn(firstFridayOfJanuary2012.plusWeeks(3))); // last friday of january
+        assertFalse(everyMonthTheLastFridayFromJanuary2012ToMay2012.isRecurringOn(firstFridayOfJanuary2012.plusWeeks(4)));
+        assertFalse(everyMonthTheLastFridayFromJanuary2012ToMay2012.isRecurringOn(firstFridayOfJanuary2012.plusWeeks(5)));
+        assertFalse(everyMonthTheLastFridayFromJanuary2012ToMay2012.isRecurringOn(firstFridayOfJanuary2012.plusWeeks(6)));
+        assertTrue(everyMonthTheLastFridayFromJanuary2012ToMay2012.isRecurringOn(firstFridayOfJanuary2012.plusWeeks(7))); // last friday of february
+        assertFalse(everyMonthTheLastFridayFromJanuary2012ToMay2012.isRecurringOn(firstFridayOfJanuary2012.plusWeeks(8)));
+        assertFalse(everyMonthTheLastFridayFromJanuary2012ToMay2012.isRecurringOn(firstFridayOfJanuary2012.plusWeeks(9)));
+        assertFalse(everyMonthTheLastFridayFromJanuary2012ToMay2012.isRecurringOn(firstFridayOfJanuary2012.plusWeeks(10)));
+        assertFalse(everyMonthTheLastFridayFromJanuary2012ToMay2012.isRecurringOn(firstFridayOfJanuary2012.plusWeeks(11)));
+        assertTrue(everyMonthTheLastFridayFromJanuary2012ToMay2012.isRecurringOn(firstFridayOfJanuary2012.plusWeeks(12))); // last friday of april is
+        assertFalse(everyMonthTheLastFridayFromJanuary2012ToMay2012.isRecurringOn(firstFridayOfJanuary2012.plusWeeks(13)));
+        assertFalse(everyMonthTheLastFridayFromJanuary2012ToMay2012.isRecurringOn(firstFridayOfJanuary2012.plusWeeks(14)));
+        assertFalse(everyMonthTheLastFridayFromJanuary2012ToMay2012.isRecurringOn(firstFridayOfJanuary2012.plusWeeks(15)));
+        assertTrue(everyMonthTheLastFridayFromJanuary2012ToMay2012.isRecurringOn(firstFridayOfJanuary2012.plusWeeks(16))); // fourth friday of april
+    }
+
     public void testRecursEveryAugustTheEight() {
-        int oneYear = 1;
+        int oneYear = 1; // you can change the Int type by the one you make up
         MonthDay augustTheEight = MonthDay.of(8, 8);
         TimeExpression everyAugustTheEightFrom2012To2015 =
             TimeExpression
