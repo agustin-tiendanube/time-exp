@@ -24,10 +24,10 @@ public class TimeExpressionTest extends TestCase {
 
         TimeExpression everyDayFromTodayToTheNextSixDaysTimeExp =
             TimeExpression
-                .dailyEveryFromTo(
+                .dailyEveryFromOnwards(
                     oneDay,
-                    today,
-                    theNextSixDays);
+                    today
+                );
 
         assertTrue(everyDayFromTodayToTheNextSixDaysTimeExp.isRecurringOn(today));
         assertTrue(everyDayFromTodayToTheNextSixDaysTimeExp.isRecurringOn(today.plusDays(1)));
@@ -36,7 +36,7 @@ public class TimeExpressionTest extends TestCase {
         assertTrue(everyDayFromTodayToTheNextSixDaysTimeExp.isRecurringOn(today.plusDays(4)));
         assertTrue(everyDayFromTodayToTheNextSixDaysTimeExp.isRecurringOn(today.plusDays(5)));
         assertTrue(everyDayFromTodayToTheNextSixDaysTimeExp.isRecurringOn(today.plusDays(6)));
-        assertFalse(everyDayFromTodayToTheNextSixDaysTimeExp.isRecurringOn(today.plusDays(7)));
+
     }
 
     public void testRecursEveryTwoDays() {
@@ -46,10 +46,10 @@ public class TimeExpressionTest extends TestCase {
 
         TimeExpression everyTwoDaysFromTodayToTheNextSevenDaysTimeExp =
             TimeExpression
-                .dailyEveryFromTo(
+                .dailyEveryFromOnwards(
                     twoDays,
-                    today,
-                    theNextSevenDays);
+                    today
+                );
 
         assertTrue(everyTwoDaysFromTodayToTheNextSevenDaysTimeExp.isRecurringOn(today));
         assertFalse(everyTwoDaysFromTodayToTheNextSevenDaysTimeExp.isRecurringOn(today.plusDays(1)));
@@ -58,7 +58,7 @@ public class TimeExpressionTest extends TestCase {
         assertTrue(everyTwoDaysFromTodayToTheNextSevenDaysTimeExp.isRecurringOn(today.plusDays(4)));
         assertFalse(everyTwoDaysFromTodayToTheNextSevenDaysTimeExp.isRecurringOn(today.plusDays(5)));
         assertTrue(everyTwoDaysFromTodayToTheNextSevenDaysTimeExp.isRecurringOn(today.plusDays(6)));
-        assertFalse(everyTwoDaysFromTodayToTheNextSevenDaysTimeExp.isRecurringOn(today.plusDays(7)));
+
     }
 
     public void testRecursEveryMonthTheSecondDay() {
@@ -69,11 +69,11 @@ public class TimeExpressionTest extends TestCase {
 
         TimeExpression everyMonthTheSeconthDayFromJanuary2012ToMay2012 =
             TimeExpression
-                .monthlyEveryOnFromTo(
+                .monthlyEveryOnFromOnwards(
                     oneMonth,
                     theSecondDay,
-                    januaryOf2012,
-                    mayOf2012);
+                    januaryOf2012
+                );
 
         LocalDate januaryTheSeconthOf2012 = LocalDate.of(2012, 1, 2);
         assertTrue(everyMonthTheSeconthDayFromJanuary2012ToMay2012.isRecurringOn(januaryTheSeconthOf2012));
@@ -81,7 +81,7 @@ public class TimeExpressionTest extends TestCase {
         assertTrue(everyMonthTheSeconthDayFromJanuary2012ToMay2012.isRecurringOn(januaryTheSeconthOf2012.plusMonths(2)));
         assertTrue(everyMonthTheSeconthDayFromJanuary2012ToMay2012.isRecurringOn(januaryTheSeconthOf2012.plusMonths(3)));
         assertTrue(everyMonthTheSeconthDayFromJanuary2012ToMay2012.isRecurringOn(januaryTheSeconthOf2012.plusMonths(4)));
-        assertFalse(everyMonthTheSeconthDayFromJanuary2012ToMay2012.isRecurringOn(januaryTheSeconthOf2012.plusMonths(5)));
+
     }
 
     public void testRecursEveryTwoMonthsTheSeconthDay() {
@@ -92,11 +92,11 @@ public class TimeExpressionTest extends TestCase {
 
         TimeExpression everyTwoMonthsTheSeconthDayFromJanuary2012ToMay2012 =
             TimeExpression
-                .monthlyEveryOnFromTo(
+                .monthlyEveryOnFromOnwards(
                     twoMonth,
                     theSecondDay,
-                    january2012,
-                    may2012);
+                    january2012
+                );
 
         LocalDate januaryTheSeconthOf2012 = LocalDate.of(2012, 1, 2);
         assertTrue(everyTwoMonthsTheSeconthDayFromJanuary2012ToMay2012.isRecurringOn(januaryTheSeconthOf2012));
@@ -104,7 +104,7 @@ public class TimeExpressionTest extends TestCase {
         assertTrue(everyTwoMonthsTheSeconthDayFromJanuary2012ToMay2012.isRecurringOn(januaryTheSeconthOf2012.plusMonths(2)));
         assertFalse(everyTwoMonthsTheSeconthDayFromJanuary2012ToMay2012.isRecurringOn(januaryTheSeconthOf2012.plusMonths(3)));
         assertTrue(everyTwoMonthsTheSeconthDayFromJanuary2012ToMay2012.isRecurringOn(januaryTheSeconthOf2012.plusMonths(4)));
-        assertFalse(everyTwoMonthsTheSeconthDayFromJanuary2012ToMay2012.isRecurringOn(januaryTheSeconthOf2012.plusMonths(5)));
+
     }
 
     public void testRecursEveryMonthTheFirstFriday() {
@@ -115,12 +115,12 @@ public class TimeExpressionTest extends TestCase {
 
         TimeExpression everyMonthTheFirstFridayFromJanuary2012ToMay2012 =
             TimeExpression
-                .monthlyEveryOnOfFromTo(
+                .monthlyEveryOnOfFromOnwards(
                     oneMonth,
                     DayOfWeek.FRIDAY,
                     theFirstWeekOfTheMonth,
-                    januaryOf2012,
-                    mayOf2012);
+                    januaryOf2012
+                );
 
         LocalDate firstFridayOfJanuary2012 = LocalDate.of(2012, 1, 6);
         assertTrue(everyMonthTheFirstFridayFromJanuary2012ToMay2012.isRecurringOn(firstFridayOfJanuary2012)); // first friday of january
@@ -147,12 +147,12 @@ public class TimeExpressionTest extends TestCase {
 
         TimeExpression everyMonthTheLastFridayFromJanuary2012ToMay2012 =
                 TimeExpression
-                        .monthlyEveryOnOfFromTo(
+                        .monthlyEveryOnOfFromOnwards(
                                 oneMonth,
                                 DayOfWeek.FRIDAY,
                                 theFirstWeekOfTheMonth,
-                                januaryOf2012,
-                                mayOf2012);
+                                januaryOf2012
+                        );
 
         LocalDate firstFridayOfJanuary2012 = LocalDate.of(2012, 1, 6);
         assertFalse(everyMonthTheLastFridayFromJanuary2012ToMay2012.isRecurringOn(firstFridayOfJanuary2012));
@@ -179,17 +179,16 @@ public class TimeExpressionTest extends TestCase {
         MonthDay augustTheEight = MonthDay.of(8, 8);
         TimeExpression everyAugustTheEightFrom2012To2015 =
             TimeExpression
-                .yearlyEveryOnFromTo(
+                .yearlyEveryOnFromOnwards(
                     oneYear,
                     augustTheEight,
-                    2012,
-                    2015);
+                    2012
+                );
 
         LocalDate firstEightOfAugust = LocalDate.of(2012, 8, 8);
         assertTrue(everyAugustTheEightFrom2012To2015.isRecurringOn(firstEightOfAugust));
         assertTrue(everyAugustTheEightFrom2012To2015.isRecurringOn(firstEightOfAugust.plusYears(1)));
         assertTrue(everyAugustTheEightFrom2012To2015.isRecurringOn(firstEightOfAugust.plusYears(2)));
         assertTrue(everyAugustTheEightFrom2012To2015.isRecurringOn(firstEightOfAugust.plusYears(3)));
-        assertFalse(everyAugustTheEightFrom2012To2015.isRecurringOn(firstEightOfAugust.plusYears(4)));
     }
 }

@@ -9,20 +9,20 @@ public class TimeExpression {
         throw new RuntimeException("Must implement method: on");
     }
 
-    public static TimeExpression dailyEveryFromTo(int anAmountOfDays, LocalDate aDate, LocalDate anotherDatet) {
+    public static TimeExpression dailyEveryFromOnwards(int anAmountOfDays, LocalDate aDate) {
         throw new RuntimeException("Must implement method: dailyEveryFromTo");
     }
 
-    public static TimeExpression monthlyEveryOnFromTo(int anAmountOfMonths, int aDayInMonth, YearMonth anYear, YearMonth anotherYear) {
+    public static TimeExpression monthlyEveryOnFromOnwards(int anAmountOfMonths, int aDayInMonth, YearMonth anYear) {
         throw new RuntimeException("Must implement method: monthlyEveryOnFromTo");
     }
 
-    public static TimeExpression monthlyEveryOnOfFromTo(int anAmountOfMonths, DayOfWeek aDayOfWeek, int aWeekInMonth, YearMonth anYear, YearMonth anotherYear) {
+    public static TimeExpression monthlyEveryOnOfFromOnwards(int anAmountOfMonths, DayOfWeek aDayOfWeek, int aWeekInMonth, YearMonth anYear) {
         throw new RuntimeException("Must implement method: monthlyEveryOnOfFromTo");
     }
 
-    public static TimeExpression yearlyEveryOnFromTo(int anAmountOfYears, MonthDay aMonthDay, int anYear, int anotherYear) {
-        throw new RuntimeException("Must implement method: yearlyEveryOnFromTo");
+    public static TimeExpression yearlyEveryOnFromOnwards(int anAmountOfYears, MonthDay aMonthDay, int anYear) {
+        throw new RuntimeException("Must implement method: yearlyEveryOnFromOnwards");
     }
 
     public boolean isRecurringOn(LocalDate aDate) {
